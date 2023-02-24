@@ -9,65 +9,65 @@ import { setTheme } from "../store/theme/theme-actions";
 import { clearControls } from "../store/controls/controls-actions";
 
 export const Header = () => {
-	const dispatch = useDispatch();
-	const theme = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme);
 
-	const toggleTheme = () => {
-		dispatch(setTheme(theme === "light" ? "dark" : "light"));
-	};
+  const toggleTheme = () => {
+    dispatch(setTheme(theme === "light" ? "dark" : "light"));
+  };
 
-	const cleanUp = () => {
-		dispatch(clearControls());
-	};
+  const cleanUp = () => {
+    dispatch(clearControls());
+  };
 
-	useEffect(() => {
-		document.body.setAttribute("data-theme", theme);
-	}, [theme]);
+  useEffect(() => {
+    document.body.setAttribute("data-theme", theme);
+  }, [theme]);
 
-	return (
-		<HeaderEl>
-			<Container>
-				<Wrapper>
-					<Title onClick={cleanUp}>Where is the world?</Title>
-					<ModeSwitcher onClick={toggleTheme}>
-						{theme === "light" ? (
-							<IoMoonOutline size="14px" />
-						) : (
-							<IoMoon size="14px" />
-						)}{" "}
-						<span style={{ marginLeft: "0.75rem" }}>{theme} Theme</span>
-					</ModeSwitcher>
-				</Wrapper>
-			</Container>
-		</HeaderEl>
-	);
+  return (
+    <HeaderEl>
+      <Container>
+        <Wrapper>
+          <Title onClick={cleanUp}>Where is the world?</Title>
+          <ModeSwitcher onClick={toggleTheme}>
+            {theme === "light" ? (
+              <IoMoonOutline size="14px" />
+            ) : (
+              <IoMoon size="14px" />
+            )}{" "}
+            <span style={{ marginLeft: "0.75rem" }}>{theme} Theme</span>
+          </ModeSwitcher>
+        </Wrapper>
+      </Container>
+    </HeaderEl>
+  );
 };
 
 const HeaderEl = styled.header`
-	box-shadow: var(--shadow);
-	background-color: var(--colors-ui-base);
+  box-shadow: var(--shadow);
+  background-color: var(--colors-ui-base);
 `;
 
 const Wrapper = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
 `;
 
 const Title = styled(Link).attrs({
-	to: "/",
+  to: "/",
 })`
-	color: var(--colors-text);
-	font-size: var(--fs-sm);
-	text-decoration: none;
-	font-weight: var(--fw-bold);
+  color: var(--colors-text);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+  font-weight: var(--fw-bold);
 `;
 
 const ModeSwitcher = styled.div`
-	color: var(--colors-text);
-	font-size: var(--fs-sm);
-	cursor: pointer;
-	font-weight: var(--fw-bold);
-	text-transform: capitalize;
+  color: var(--colors-text);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  font-weight: var(--fw-bold);
+  text-transform: capitalize;
 `;

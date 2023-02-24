@@ -6,45 +6,45 @@ import { selectSearch } from "../store/controls/controls-selectors";
 import { setSearch } from "../store/controls/controls-actions";
 
 export const Search = () => {
-	const dispatch = useDispatch();
-	const search = useSelector(selectSearch);
+  const dispatch = useDispatch();
+  const search = useSelector(selectSearch);
 
-	const handleSearch = (e) => {
-		dispatch(setSearch(e.target.value));
-	};
+  const handleSearch = (e) => {
+    dispatch(setSearch(e.target.value));
+  };
 
-	return (
-		<InputContainer>
-			<IoSearch />
-			<Input onChange={(e) => handleSearch(e)} value={search} />
-		</InputContainer>
-	);
+  return (
+    <InputContainer>
+      <IoSearch />
+      <Input onChange={(e) => handleSearch(e)} value={search} />
+    </InputContainer>
+  );
 };
 
 const InputContainer = styled.label`
-	background-color: var(--colors-ui-base);
-	padding: 1rem 2rem;
-	display: flex;
-	align-items: center;
+  background-color: var(--colors-ui-base);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
 
-	border-radius: var(--radii);
-	box-shadow: var(--shadow);
-	width: 100%;
-	margin-bottom: 1rem;
+  border-radius: var(--radii);
+  box-shadow: var(--shadow);
+  width: 100%;
+  margin-bottom: 1rem;
 
-	@media (min-width: 767px) {
-		margin-bottom: 0;
-		width: 280px;
-	}
+  @media (min-width: 767px) {
+    margin-bottom: 0;
+    width: 280px;
+  }
 `;
 
 const Input = styled.input.attrs({
-	type: "text",
-	placeholder: "Search for a country...",
+  type: "text",
+  placeholder: "Search for a country...",
 })`
-	margin-left: 2rem;
-	border: none;
-	outline: none;
-	color: var(--color-text);
-	background-color: var(--colors-ui-base);
+  margin-left: 2rem;
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  background-color: var(--colors-ui-base);
 `;
